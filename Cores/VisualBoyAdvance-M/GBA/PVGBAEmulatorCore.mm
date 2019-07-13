@@ -372,14 +372,16 @@ bool systemReadJoypads()
                 (gamepad.dpad.left.isPressed || gamepad.leftThumbstick.left.isPressed) ? pad[playerIndex] |= KEY_LEFT : pad[playerIndex] &= ~KEY_LEFT;
                 (gamepad.dpad.right.isPressed || gamepad.leftThumbstick.right.isPressed) ? pad[playerIndex] |= KEY_RIGHT : pad[playerIndex] &= ~KEY_RIGHT;
 
-                (gamepad.buttonA.isPressed || gamepad.buttonY.isPressed) ? pad[playerIndex] |= KEY_BUTTON_B : pad[playerIndex] &= ~KEY_BUTTON_B;
-                (gamepad.buttonB.isPressed || gamepad.buttonX.isPressed) ? pad[playerIndex] |= KEY_BUTTON_A : pad[playerIndex] &= ~KEY_BUTTON_A;
+                //Changed Both A and B Buttons for RotorRiot Controller
+                gamepad.buttonA.isPressed ? pad[playerIndex] |= KEY_BUTTON_A : pad[playerIndex] &= ~KEY_BUTTON_A;
+                gamepad.buttonB.isPressed ? pad[playerIndex] |= KEY_BUTTON_B : pad[playerIndex] &= ~KEY_BUTTON_B;
 
                 gamepad.leftShoulder.isPressed ? pad[playerIndex] |= KEY_BUTTON_L : pad[playerIndex] &= ~KEY_BUTTON_L;
                 gamepad.rightShoulder.isPressed ? pad[playerIndex] |= KEY_BUTTON_R : pad[playerIndex] &= ~KEY_BUTTON_R;
 
-				gamepad.leftTrigger.isPressed ? pad[playerIndex] |= KEY_BUTTON_SELECT : pad[playerIndex] &= ~KEY_BUTTON_SELECT;
-                gamepad.rightTrigger.isPressed ? pad[playerIndex] |= KEY_BUTTON_START : pad[playerIndex] &= ~KEY_BUTTON_START;
+                //Enable X,Y buttons for start and select for RotorRiot Controller
+                gamepad.buttonY.isPressed ? pad[playerIndex] |= KEY_BUTTON_START : pad[playerIndex] &= ~KEY_BUTTON_START;
+                gamepad.buttonX.isPressed ? pad[playerIndex] |= KEY_BUTTON_SELECT : pad[playerIndex] &= ~KEY_BUTTON_SELECT;
                 
             }
             else if ([controller gamepad])
@@ -392,8 +394,8 @@ bool systemReadJoypads()
                 gamepad.dpad.left.isPressed ? pad[playerIndex] |= KEY_LEFT : pad[playerIndex] &= ~KEY_LEFT;
                 gamepad.dpad.right.isPressed ? pad[playerIndex] |= KEY_RIGHT : pad[playerIndex] &= ~KEY_RIGHT;
 
-                gamepad.buttonA.isPressed ? pad[playerIndex] |= KEY_BUTTON_B : pad[playerIndex] &= ~KEY_BUTTON_B;
-                gamepad.buttonB.isPressed ? pad[playerIndex] |= KEY_BUTTON_A : pad[playerIndex] &= ~KEY_BUTTON_A;
+                gamepad.buttonA.isPressed ? pad[playerIndex] |= KEY_BUTTON_A : pad[playerIndex] &= ~KEY_BUTTON_A;
+                gamepad.buttonB.isPressed ? pad[playerIndex] |= KEY_BUTTON_B : pad[playerIndex] &= ~KEY_BUTTON_B;
 
                 gamepad.leftShoulder.isPressed ? pad[playerIndex] |= KEY_BUTTON_L : pad[playerIndex] &= ~KEY_BUTTON_L;
                 gamepad.rightShoulder.isPressed ? pad[playerIndex] |= KEY_BUTTON_R : pad[playerIndex] &= ~KEY_BUTTON_R;

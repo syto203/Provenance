@@ -1762,17 +1762,19 @@ static size_t update_audio_batch(const int16_t *data, size_t frames)
 			case PVGBAButtonRight:
 				return [[dpad right] isPressed]?:[[[gamepad leftThumbstick] right] isPressed];
 			case PVGBAButtonB:
-				return [[gamepad buttonA] isPressed]?:[[gamepad buttonY] isPressed];
+                return [[gamepad buttonB] isPressed]; //Changed B to A and commented the rest
 			case PVGBAButtonA:
-				return [[gamepad buttonB] isPressed]?:[[gamepad buttonX] isPressed];
+                return [[gamepad buttonA] isPressed]; //Changed A to B and commented the rest
 			case PVGBAButtonL:
 				return [[gamepad leftShoulder] isPressed];
 			case PVGBAButtonR:
 				return [[gamepad rightShoulder] isPressed];
 			case PVGBAButtonSelect:
-				return [[gamepad leftTrigger] isPressed];
+				//return [[gamepad leftTrigger] isPressed]; //change this to X
+                return [[gamepad buttonX] isPressed];
 			case PVGBAButtonStart:
-				return [[gamepad rightTrigger] isPressed];
+				//return [[gamepad rightTrigger] isPressed]; ////change this to Y
+                return [[gamepad buttonY] isPressed];
 			default:
 				break;
 		}
